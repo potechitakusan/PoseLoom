@@ -1,0 +1,24 @@
+﻿{
+    "schema_version":  2,
+    "library_id":  "example_poses",
+    "title_ja":  "ポーズ制作の例",
+    "model":  "female-v2",
+    "candidate_count":  1,
+    "steps":  25,
+    "negative_prompt":  "cropped head, cropped hands, cropped feet, out of frame, multiple people, duplicate person, extra limbs, missing limbs, fused limbs, impossible joints, motion blur, loose skirt, long coat, text, labels, watermark, collage, multiple views",
+    "retry_policy":  "never",
+    "poses":  [
+                  {
+                      "id":  "P001",
+                      "slug":  "salute",
+                      "name_ja":  "額に手を添えて敬礼",
+                      "category":  "standing",
+                      "category_ja":  "立ち姿",
+                      "seed":  12345,
+                      "width":  512,
+                      "height":  768,
+                      "prompt":  "A full-body anatomical pose reference photograph of exactly one adult Japanese woman, age 25, slim build, wearing a fitted short-sleeve coral T-shirt, opaque dark navy leggings and flat shoes. Short tied-back hair leaves the neck and shoulders visible. Plain light gray studio, soft even light. Keep the entire head, both hands and both feet within the image with generous margins. Natural human joint limits, clear limb silhouettes, five fingers per hand, no other people. Show only one instant of the following pose, not a sequence. Stand with heels close, right fingertips at the right eyebrow and elbow out, left hand straight beside the left thigh. No props, accessories or equipment. Clear three-quarter view with every limb visible.",
+                      "support_note":  ""
+                  }
+              ]
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "title": "My Pose Library",
+  "license_source": "../licenses",
+  "collections": [
+    {
+      "id": "my_poses",
+      "name": "作成したポーズ",
+      "description": "編集可能なポーズ素材です。",
+      "target": 1,
+      "count": 1,
+      "status": "available"
+    }
+  ],
+  "assets": [
+    {
+      "id": "P001",
+      "name_ja": "ポーズ1",
+      "category": "基本",
+      "collection": "my_poses",
+      "kind": "pose",
+      "source": "../output/pose01/posed.blend",
+      "preview": "../output/pose01/posed.png",
+      "visual_review": "not_reviewed"
+    }
+  ],
+  "export_root": "../output/exports"
+}

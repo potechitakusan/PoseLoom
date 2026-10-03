@@ -1,0 +1,30 @@
+{
+  "checked_on": "2026-09-27",
+  "installed_node_commit": "428569ddcf4a40662415b11041dd3e76859baee7",
+  "files": [
+    {
+      "path": "sam3dbody/LICENSE-MHR",
+      "component": "MHR human data",
+      "upstream": "https://github.com/facebookresearch/MHR/blob/main/LICENSE",
+      "sha256": "3ddf9be5c28fe27dad143a5dc76eea25222ad1dd68934a047064e56ed2fa40c5"
+    },
+    {
+      "path": "sam3dbody/NOTICE-MHR",
+      "component": "MHR attribution",
+      "upstream": "https://github.com/tori29umai0123/ComfyUI-SAM3DBody_utills/blob/main/docs/licenses/NOTICE-MHR",
+      "sha256": "953fa9902a65022fa4f1e72e68fe6a4f26366931ff9fc33dbc1fcff95fb7006c"
+    },
+    {
+      "path": "sam3dbody/LICENSE-SAM",
+      "component": "SAM software and model weights; not bundled",
+      "upstream": "https://github.com/facebookresearch/sam-3d-body/blob/main/LICENSE",
+      "sha256": "315341214aa835fd11de2922fbeae30f741d1c8ba214173974bbf0046ef9afa5"
+    },
+    {
+      "path": "sam3dbody/LICENSE-MIT",
+      "component": "ComfyUI wrapper code",
+      "upstream": "https://github.com/tori29umai0123/ComfyUI-SAM3DBody_utills/blob/main/docs/licenses/LICENSE-MIT",
+      "sha256": "13af1064c3295b83f660ab2d4d9dd0539e074503bc79c7b0d3d5d9e3f567f3bd"
+    }
+  ]
+}

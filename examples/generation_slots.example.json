@@ -1,0 +1,11 @@
+{
+  "prompt": ["4", "text"],
+  "negative": ["5", "text"],
+  "seed": ["7", "seed"],
+  "steps": ["7", "steps"],
+  "width": ["6", "width"],
+  "height": ["6", "height"],
+  "unet": ["1", "unet_name"],
+  "clip": ["2", "clip_name"],
+  "vae": ["3", "vae_name"]
+}

@@ -1,0 +1,26 @@
+kit_config.json
+.venv/
+.wrangler/
+__pycache__/
+*.pyc
+assets/
+output/
+temp/
+maintenance/
+dist/
+artifacts/
+*.log
+*.blend
+*.blend1
+*.fbx
+*.bvh
+*.safetensors
+*.pt
+.env
+*.part
+
+# Separate hosting outputs and local build records
+releases/
+*-releases/
+*-records/
+*.zip

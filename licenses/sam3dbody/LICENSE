@@ -1,0 +1,59 @@
+ComfyUI-SAM3DBody_utills License
+================================
+
+This project contains code and assets under multiple licenses:
+
+1. WRAPPER CODE (MIT License)
+   - Files: nodes/, tools/, web/, install.py, __init__.py, prestartup_script.py,
+     and other ComfyUI integration code
+   - Copyright (c) 2025 Andrea Pozzetti
+   - License: MIT License (see docs/licenses/LICENSE-MIT)
+
+2. SAM 3D BODY LIBRARY (SAM License)
+   - Directory: nodes/sam_3d_body/
+   - Copyright (c) Meta Platforms, Inc. and affiliates
+   - License: SAM License (see docs/licenses/LICENSE-SAM)
+   - Vendored from: https://github.com/facebookresearch/sam-3d-body
+
+3. MOMENTUM HUMAN RIG / MHR (Apache License 2.0)
+   - Asset: mhr_model.pt (downloaded from MHR v1.0.0 release)
+   - Derivative data authored against MHR topology:
+     presets/face_blendshapes.npz and per-object vertex JSONs under presets/
+   - Copyright (c) Meta Platforms, Inc. and affiliates
+   - License: Apache License 2.0
+     (see docs/licenses/LICENSE-MHR and docs/licenses/NOTICE-MHR)
+
+4. THIRD-PARTY CODE AND ATTRIBUTIONS
+   - See docs/licenses/THIRD_PARTY_NOTICES for the full list of third-party
+     attributions (including UniRig-derived Blender auto-installation code,
+     MIT Licensed).
+
+---
+
+SUMMARY OF LICENSING
+
+- The ComfyUI wrapper and integration code is licensed under the MIT License.
+  You may freely use, modify, and distribute this code under MIT terms.
+
+- The vendored SAM 3D Body library (nodes/sam_3d_body/) is licensed under
+  Meta's SAM License. This is a permissive research license that allows
+  commercial use and derivative works, with certain requirements for
+  redistribution and acknowledgment. See docs/licenses/LICENSE-SAM for full
+  terms.
+
+- The Momentum Human Rig (MHR) asset and any data derived from its mesh
+  topology (blend-shape deltas, per-object vertex JSONs) are licensed under
+  the Apache License 2.0. See docs/licenses/LICENSE-MHR and
+  docs/licenses/NOTICE-MHR.
+
+- When redistributing this project, include LICENSE-MIT, LICENSE-SAM,
+  LICENSE-MHR, and NOTICE-MHR, and retain the corresponding attributions.
+
+---
+
+For the full text of each license, see:
+- docs/licenses/LICENSE-MIT          — MIT License for wrapper code
+- docs/licenses/LICENSE-SAM          — SAM License for SAM 3D Body library
+- docs/licenses/LICENSE-MHR          — Apache 2.0 for MHR
+- docs/licenses/NOTICE-MHR           — Attribution notice for MHR
+- docs/licenses/THIRD_PARTY_NOTICES  — Third-party attributions and notices

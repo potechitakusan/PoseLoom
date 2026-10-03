@@ -1,0 +1,4 @@
+interface:
+  display_name: "PoseLoom 制作と配布"
+  short_description: "人物画像から編集可能なポーズ素材を制作し、BVHとBlendの配布サイトを保守する"
+  default_prompt: "Use $poseloom to help me set up and maintain this pose library."

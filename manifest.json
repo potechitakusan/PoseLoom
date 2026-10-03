@@ -1,0 +1,341 @@
+{
+  "schema_version": 1,
+  "purpose": "source-only agent distribution",
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 288,
+      "sha256": "084c59592b1c64a2815da7bb0d9e6c66ff8fd719355de3b869c1ccf69efd093d"
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 7722,
+      "sha256": "093f0a73ddeddbd8c1e3f0657e2300df33c9b6b7ee23fbe3816fd870cf24fd63"
+    },
+    {
+      "path": "docs/hosting.md",
+      "bytes": 4626,
+      "sha256": "85bd1ac7b888535a8a4dd022cdbb1b86144b59d2f565c6ca2051e28dc6abc288"
+    },
+    {
+      "path": "docs/html_updates.md",
+      "bytes": 8225,
+      "sha256": "55d7f546b381da205e21105df28def4568677521415c9c18e3a1a22e8549471f"
+    },
+    {
+      "path": "docs/install.html",
+      "bytes": 10721,
+      "sha256": "57867fcb8284f197d932ca144cf91edea7487b4c390ad56680b0df77bf5499bc"
+    },
+    {
+      "path": "docs/maintenance.md",
+      "bytes": 3736,
+      "sha256": "6494720249b37fcb472125ba2886d49bfe3e5f8f7429ecd5ba0b9a16c006285f"
+    },
+    {
+      "path": "docs/privacy.md",
+      "bytes": 4812,
+      "sha256": "b4e836a85e51d3ffcbf21d6cf0381be4a77481bb9dc02629c9c8f1ef1ac00ebc"
+    },
+    {
+      "path": "docs/progress.md",
+      "bytes": 7898,
+      "sha256": "f3db07cf573e4aeb938d9d74f7467be46d0b7325e810d9139ecd69d988459993"
+    },
+    {
+      "path": "docs/setup.md",
+      "bytes": 9987,
+      "sha256": "7fb0ef5e26875ed251efd9ade9284e908d25d6df2c0b5ee2af843336414a4e5f"
+    },
+    {
+      "path": "docs/workflows.md",
+      "bytes": 5748,
+      "sha256": "11985e9cab79ed0a796e4106a29cb53201c4d5f8d74d8da546cb60f060f831a8"
+    },
+    {
+      "path": "examples/batch.example.json",
+      "bytes": 1746,
+      "sha256": "42a425d83caed914496eff183155cd944100d481d3a90e8a393d129b0b95acca"
+    },
+    {
+      "path": "examples/download_urls.example.json",
+      "bytes": 53,
+      "sha256": "ba75f8796b7f8d396aa74ac20b4c7601f9279288651f4250fc297c91a73776a0"
+    },
+    {
+      "path": "examples/generation_slots.example.json",
+      "bytes": 255,
+      "sha256": "7c27fdb5744b14bd2e6007d2c1737731615b809d108db9c92a3e026fb9224409"
+    },
+    {
+      "path": "examples/release_plan.example.json",
+      "bytes": 682,
+      "sha256": "fbad16f0a709aeeef07f7db45546f1b8fefdd99d73269c1f0844253a93d740bc"
+    },
+    {
+      "path": "examples/scene.json",
+      "bytes": 322,
+      "sha256": "7635575dc0b65a540128264e229c499a981467f0e81795458fd811b8bc8201db"
+    },
+    {
+      "path": "input/qwen21_pair_prompt.txt",
+      "bytes": 1243,
+      "sha256": "681c5bb2e2fd454ff32b6872b9b50658070caa997c4a81ecc71735b75d3d9603"
+    },
+    {
+      "path": "input/qwen21_pose_prompt.txt",
+      "bytes": 897,
+      "sha256": "a7433186779f95646b7ac00b6a47a5dea7c2a5c3b99959a9f0321b9baf9bcf7a"
+    },
+    {
+      "path": "kit.py",
+      "bytes": 10034,
+      "sha256": "659f7c1f6e740edaa53aaac0fac8c5f8cac466973788ec2c2aba9e99303becae"
+    },
+    {
+      "path": "kit_config.12gb.example.json",
+      "bytes": 419,
+      "sha256": "819935442084c78b97220354bb6220f4fc8c8057f7a8acea33fb75343df4c429"
+    },
+    {
+      "path": "kit_config.example.json",
+      "bytes": 314,
+      "sha256": "468ef834f02a943150a965db550d4b555436a746a8e48dee88480cae1c1f3708"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1096,
+      "sha256": "ae3c3afa27f05996bc4e6f32a66fa016d288c365900b72cfe134512b135fc071"
+    },
+    {
+      "path": "LICENSE_STATUS.md",
+      "bytes": 1396,
+      "sha256": "8e619c73a33bf69c54654d27e4f075af49c041b27f51a3f60f28154eb5c1c7ef"
+    },
+    {
+      "path": "licenses/mediapipe/LICENSE",
+      "bytes": 12331,
+      "sha256": "8707eef0533987efc5b155d64761eeb6e20793f50b9bd1a68dad1cf4719d0ed8"
+    },
+    {
+      "path": "licenses/mediapipe/NOTICE",
+      "bytes": 1569742,
+      "sha256": "e8e3eddc5c36d7413635455933650d7423b937185180e393f9a006bee60162e7"
+    },
+    {
+      "path": "licenses/provenance.json",
+      "bytes": 1271,
+      "sha256": "df5bd579c8f38c9e568d2be46c3ed189d0609cd424cf001e66de06f0e64b0632"
+    },
+    {
+      "path": "licenses/sam3dbody/LICENSE",
+      "bytes": 2558,
+      "sha256": "aad49b92aa71083148698a88258bc3bbead451982b3b4475aa52062436b6633d"
+    },
+    {
+      "path": "licenses/sam3dbody/LICENSE-MHR",
+      "bytes": 11560,
+      "sha256": "3ddf9be5c28fe27dad143a5dc76eea25222ad1dd68934a047064e56ed2fa40c5"
+    },
+    {
+      "path": "licenses/sam3dbody/LICENSE-MIT",
+      "bytes": 1093,
+      "sha256": "13af1064c3295b83f660ab2d4d9dd0539e074503bc79c7b0d3d5d9e3f567f3bd"
+    },
+    {
+      "path": "licenses/sam3dbody/LICENSE-SAM",
+      "bytes": 8256,
+      "sha256": "315341214aa835fd11de2922fbeae30f741d1c8ba214173974bbf0046ef9afa5"
+    },
+    {
+      "path": "licenses/sam3dbody/NOTICE-MHR",
+      "bytes": 1723,
+      "sha256": "953fa9902a65022fa4f1e72e68fe6a4f26366931ff9fc33dbc1fcff95fb7006c"
+    },
+    {
+      "path": "licenses/sam3dbody/THIRD_PARTY_NOTICES",
+      "bytes": 3921,
+      "sha256": "2a96da83588a1ce26c9094a7768ba06a098b2f46a950990c72633404c245a24d"
+    },
+    {
+      "path": "README.html",
+      "bytes": 3185,
+      "sha256": "c31606fefc65373d6dbfe77e3609f17dc2e92c6d4a4dd78d93ccfba4f7ae6bd0"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4691,
+      "sha256": "911b23b2fd3480cd9b4ca1217c16d64d1d1b98f7dbeb15c5d9c9d7074bac3989"
+    },
+    {
+      "path": "requirements-img2bvh.txt",
+      "bytes": 51,
+      "sha256": "82d7c6ad624ca89410e66b898deb67235e5e0e4b41c9dfc2d98ad161d7b3370b"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 203,
+      "sha256": "c1e665e7341183a68936640e441f89c02dd9877b580ab537703439bc88400ada"
+    },
+    {
+      "path": "scripts/blender/assemble_pose_pair.py",
+      "bytes": 6228,
+      "sha256": "2003884d8a5fc041dec5cf626648366ae87889aa9bb6d1223352baa7e44d577f"
+    },
+    {
+      "path": "scripts/blender/create_demo_background.py",
+      "bytes": 3704,
+      "sha256": "6fb4ad9cfebcc0cff4ad73a3377ba028d4ff0a2735973568b0be28892d7e6790"
+    },
+    {
+      "path": "scripts/blender/export_asset.py",
+      "bytes": 12733,
+      "sha256": "482fe3339a7b477d7f28696ec740dfb18cf48fdf3965791b08408ee27d4ed38b"
+    },
+    {
+      "path": "scripts/blender/pose_doll_tools.py",
+      "bytes": 9893,
+      "sha256": "b8c9aedb18d1222507ad4e73f21dba7d9fc739a044af2684f30064265cdbbc6a"
+    },
+    {
+      "path": "scripts/blender/prepare_models.py",
+      "bytes": 1556,
+      "sha256": "68b77f9e0fcf070dd9a9a8403a8ac75b5e618465fd1344e2b7439e7eb03b9814"
+    },
+    {
+      "path": "scripts/blender/retarget_pose_doll.py",
+      "bytes": 12356,
+      "sha256": "292aadd6de5aed2162ebf815fb399baa910f61e5e1b9d8d0cadb2f0b54ef46c2"
+    },
+    {
+      "path": "scripts/blender/rig_utils.py",
+      "bytes": 418,
+      "sha256": "68dc671bb7dd1631546bb5ff745aa4ba92f6828c20218ffa13224f4d6580d3f6"
+    },
+    {
+      "path": "scripts/blender/stage_scene.py",
+      "bytes": 9710,
+      "sha256": "c8b3b4d959e3550d1bb07a58aa88458a226dc9b21d89a6b3d7e4a6c8c7568891"
+    },
+    {
+      "path": "scripts/blender/validate_pose_pair.py",
+      "bytes": 4542,
+      "sha256": "955561ae00e81c48fc6648e99840d4955353fe437fa4dc5f11775ecd4e24c144"
+    },
+    {
+      "path": "scripts/blender/validate_transferred_pose.py",
+      "bytes": 3161,
+      "sha256": "70ba9b72fcf6db1b84faf3b3e05ae0636ec12f8b7735b30b9e6a28c42a6d232a"
+    },
+    {
+      "path": "scripts/build_catalog.py",
+      "bytes": 56970,
+      "sha256": "739ce61eac18e3e89ad9ce342a9611d80189bd1efd08a063562758dc6aeb3836"
+    },
+    {
+      "path": "scripts/check_image_dwpose.py",
+      "bytes": 2411,
+      "sha256": "204e2c4f36a0e41a6fbfe4b76b053b253ffa589ea348bc2a067b78b0e20ec53b"
+    },
+    {
+      "path": "scripts/comfy_client.py",
+      "bytes": 1705,
+      "sha256": "c490785de151f1d05b4b1cc82b5bc354a58a5f027136fbdab37934b1bd2deca6"
+    },
+    {
+      "path": "scripts/couple_pair_batch.py",
+      "bytes": 9103,
+      "sha256": "72d50242591b449d28a40cfa5da7ac4fdf73ae0a913608b0103f1bf82450b152"
+    },
+    {
+      "path": "scripts/environment.py",
+      "bytes": 5145,
+      "sha256": "03c5657f2223c9283a3cd14ccf83696f8a4b0221cd5c4fef00590e4b99682871"
+    },
+    {
+      "path": "scripts/female_v2_pose_batch.py",
+      "bytes": 27353,
+      "sha256": "61c2351ed5ec09284c1be6c6a816a6a4dab3672fd3b673d7716d843293b2a4d7"
+    },
+    {
+      "path": "scripts/generate_qwen21_pose.py",
+      "bytes": 4334,
+      "sha256": "3230477e98d17a358df40135e2f01da69f8216ddd51110f35019101b367b3206"
+    },
+    {
+      "path": "scripts/img2bvh/bvh_skeleton.py",
+      "bytes": 15561,
+      "sha256": "1df59d78a11f2623dd9c662515494b31e93c96192c59c10780bc1657435fc7a2"
+    },
+    {
+      "path": "scripts/img2bvh/main.py",
+      "bytes": 2229,
+      "sha256": "7321067dbe9693f420535a508f99f012d84ff741108d810a90755c9bd3d6e32b"
+    },
+    {
+      "path": "scripts/img2bvh/pose_estimator.py",
+      "bytes": 4522,
+      "sha256": "0976b719670dc7dd540e554f0d1c58e6a1e29531d2e224e43d3430488c5de735"
+    },
+    {
+      "path": "scripts/kit_config.py",
+      "bytes": 1374,
+      "sha256": "12efcfe22a0f0a94c5dc2f19a88ee03f06d531a8696d14ccd3eb6ed319c59ba8"
+    },
+    {
+      "path": "scripts/maintain.py",
+      "bytes": 2712,
+      "sha256": "cd9c2c69961399dc0a800d214715d5bbe94d0c5bcc6929d5155bc9e82140c76b"
+    },
+    {
+      "path": "scripts/package_source.py",
+      "bytes": 2811,
+      "sha256": "1516d8e558168a5fb4dddc66aec059daa3448897dac58817d11d7bee126c560b"
+    },
+    {
+      "path": "scripts/publication_privacy.py",
+      "bytes": 17070,
+      "sha256": "3fce5d1457d6a2830577b003ce64440b2ca7ee6ec40b527c640e58b3073788a6"
+    },
+    {
+      "path": "scripts/run_pair_pose_pipeline.py",
+      "bytes": 10612,
+      "sha256": "ce0823653e882cf0e8b92c96285b3b670bd3e6b4f3b2dfa7f71b1617385b20aa"
+    },
+    {
+      "path": "scripts/run_sam3dbody.py",
+      "bytes": 7814,
+      "sha256": "d25ed2a6a5038d90b0436ac47f0b78da1c12b018b0ab75675585df70d669aef8"
+    },
+    {
+      "path": "scripts/segment_pair_image.py",
+      "bytes": 6359,
+      "sha256": "38e9a9536066efabd8a2f771589c83baf406ce022a2daf8231c72c05daf039a4"
+    },
+    {
+      "path": "scripts/separate_pair_qwen.py",
+      "bytes": 9797,
+      "sha256": "21f262c21a50502d0ab9758edb4a59f8e2c2d0d0a88c6a7bdcc30a803c36169b"
+    },
+    {
+      "path": "scripts/tests/test_publication_privacy.py",
+      "bytes": 3376,
+      "sha256": "1bcbf7e7d0398272ec7e75355c608c91778e7895bb33756407f8f16f92ce8cbb"
+    },
+    {
+      "path": "scripts/workflow_template.py",
+      "bytes": 5191,
+      "sha256": "d3d62639ebefb9a9e9afc4f5930a38bae71770cdf5018994e7c2521cd47fbafd"
+    },
+    {
+      "path": "skills/poseloom/agents/openai.yaml",
+      "bytes": 269,
+      "sha256": "7d98f909d6791b4cdb44dd96772f7043764c6c267a86b7d15b5aecb5dc5c4b1f"
+    },
+    {
+      "path": "skills/poseloom/SKILL.md",
+      "bytes": 1675,
+      "sha256": "c797e03b5c68f0a7efd6ecbb0c59e69e75044724c14381e90065d8b96af349cb"
+    }
+  ]
+}

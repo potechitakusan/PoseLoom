@@ -1,0 +1,13 @@
+{
+  "blender_exe": "blender",
+  "comfy_url": "http://127.0.0.1:8188",
+  "comfy_root": "/path/to/ComfyUI",
+  "qwen_unet": "qwen_image_2.1_int8_convrot.safetensors",
+  "qwen_clip": "qwen3vl_8b_int8_convrot.safetensors",
+  "qwen_vae": "qwen_image_2.1_vae_bf16.safetensors",
+  "asset_root": "assets/models",
+  "clip_device": "cpu",
+  "tiled_vae": true,
+  "generation_workflow": null,
+  "edit_workflow": null
+}

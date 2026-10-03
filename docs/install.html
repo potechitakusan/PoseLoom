@@ -1,0 +1,41 @@
+﻿<!doctype html><html lang="ja"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PoseLoom インストール</title><style>body{max-width:900px;margin:40px auto;padding:0 20px;font:16px/1.8 system-ui;color:#24343c}pre{padding:18px;background:#eef2f3;white-space:pre-wrap;overflow-wrap:anywhere}td,th{padding:10px;border-bottom:1px solid #ddd;text-align:left}a{color:#076776}</style><body><p><a href="../README.md">配布エージェントの案内</a> · <a href="../docs/setup.md">12GB設定・取得方法の選択</a> · <a href="../docs/workflows.md">標準テンプレート</a> · <a href="../docs/maintenance.md">670素材の保守</a> · <a href="../docs/hosting.md">公開先の設定</a></p>
+<p><a href="../README.html">制作ツールの入口</a></p><h1>インストールと環境設定</h1>
+<p>Codexに「このフォルダのAGENTS.mdとdocs/install.htmlを読んで、使いたい工程を設定して」と依頼できます。ファイル配布と制作環境は別です。</p>
+<h2>1. Blenderで編集・書き出しするだけの場合</h2>
+<ol><li><a href="https://www.blender.org/download/">Blender</a>を用意します。本プロジェクトの確認環境はBlender 4.3.0です。</li><li>Python 3.12を用意し、制作コードを任意のフォルダへ展開します。</li><li>下記でPython環境を作ります。</li></ol>
+<pre>python -m venv .venv
+.venv\Scripts\python -m pip install -r requirements.txt</pre>
+<p>macOS/Linuxは .venv/bin/python を使います。BVH・Blendを書き出すだけなら、外部Pythonの画像関連ライブラリは不要です。Blender PythonとNumPyはBlenderに含まれます。</p>
+<ol start="4"><li>画像からの推定や基本モデルを使う場合は、poseloom-base-models.zipをassets/modelsに展開します。直下にmale.blendとfemale_anime_v2.blendがある形にします。既存blendを書き出すだけなら基本モデルは不要です。</li><li>kit_config.example.jsonをkit_config.jsonへコピーし、blender_exeとasset_rootを設定します。BlenderがPATHにあればblender_exeはblenderで構いません。</li></ol>
+<pre># 基本モデルを使う場合は、埋め込みの体形情報をローカル設定として取り出す
+python -X utf8 kit.py prepare-models
+python -X utf8 kit.py doctor --offline
+python -X utf8 kit.py export --blend "path/to/pose.blend" --output-dir "output/export01" --id "pose01"</pre>
+<p>kit_config.jsonはGit対象外です。別の設定ファイルは環境変数POSELOOM_CONFIGで指定します。POSELOOM_BLENDER、POSELOOM_COMFY_URL、POSELOOM_COMFY_ROOT、POSELOOM_ASSET_ROOTでも上書きできます。相対asset_rootは設定ファイル基準です。</p>
+<h2>2. 人物画像からポーズを推定する場合</h2>
+<ol><li><a href="https://github.com/Comfy-Org/ComfyUI">ComfyUI</a>を別環境へ導入して起動します。</li><li>ComfyUIのcustom_nodesへ<a href="https://github.com/tori29umai0123/ComfyUI-SAM3DBody_utills">ComfyUI-SAM3DBody_utills</a>を導入します。インストールと依存環境は同ノードのREADMEに従います。ノードは隔離ワーカーを使うため、制作ツールのvenvへ巨大なPyTorch環境を重ねて入れる必要はありません。</li><li>同ノードが指定するSAM 3D Body・MHRを公式配布先から取得します。確認環境ではComfyUI/models/sam3dbodyに配置されています。現行ノードの指示を優先してください。</li><li>kit_config.jsonのcomfy_rootをComfyUI本体、comfy_urlをAPIのURLに設定します。</li></ol>
+<pre>python -X utf8 kit.py doctor
+python -X utf8 kit.py pose --image "reference.png" --model female --output-dir "output/pose01"</pre>
+<p>処理は画像送信 → SAM3D推定 → 解析元FBX/BVHの保存 → 人形へのリターゲット → Blender撮影です。MHR推定メッシュそのものと、編集用人形の体形は異なります。解析工程ではFBXを中間データとして使います。素材として配布する形式はBVHとBlendです。</p>
+<h2>3. 文章から参照画像を作る場合</h2>
+<p>ComfyUIにQwen-Image 2.1互換のUNet、テキストエンコーダー、VAEを用意します。確認環境のファイル名はkit_config.example.jsonにあります。実際にインストールした互換モデル名へ合わせてください。モデル重みはこのリポジトリに含まれません。</p>
+<pre>python -X utf8 kit.py generate --prompt-file "input/qwen21_pose_prompt.txt" --output-dir "output/reference01"
+python -X utf8 kit.py batch run --catalog "examples/batch.example.json" --output-dir "output/additions" --dry-run
+python -X utf8 kit.py batch run --catalog "examples/batch.example.json" --output-dir "output/additions"</pre>
+<p>バッチは先に全画像を生成し、続いて推定・撮影を行います。失敗・中断済みの工程を自動で再試行しません。中断後の再開は同じ設定・同じ出力先で行い、summary.jsonとstate.jsonを確認します。古いプロジェクトから移動したバッチの契約ハッシュは、強制的に書き換えないでください。</p>
+<h3>参照画像が完成済みの場合</h3><p>必要なIDだけのschema 2プロンプトカタログを用意します。import-sourcesはID/source.pngを検証して新しい出力先にコピーします。元のバッチは変更せず、まだ3D化していない画像から処理を始められます。全参照画像を取り込んだバッチにはQwenのノード・重みは不要です。SAM 3D BodyとBlenderは必要です。</p><pre>python -X utf8 kit.py batch import-sources --catalog remaining_prompts.json --images-root old_run/poses --output-dir output/completion
+python -X utf8 kit.py batch run --catalog remaining_prompts.json --output-dir output/completion</pre><p>以前失敗・中断した工程を含める場合は、再実行する意図があることを確認してから新しいバッチを作ります。自動で以前の状態や試行回数を書き換えません。</p>
+<h2>4. 背景へ配置する場合</h2>
+<p>examples/scene.jsonを複製し、各人物のblendを指定します。poseを指定するとプリセットへ切り替わるため、ライブラリの保存姿勢にはposeを付けません。</p>
+<pre>python -X utf8 kit.py scene --spec "examples/scene.json" --output "output/scene01.blend"</pre>
+<h2>5. カタログを作る場合</h2>
+<p>release_planのcollectionsにカテゴリ、assetsにID、名前、カテゴリID、source、previewを記録します。source/preview/export_rootは計画JSONの場所を基準とする相対パスです。export_rootは非公開の書き出しキャッシュです。export_asset.pyのjobsはsourceとoutputの絶対パスを指定します。</p>
+<pre>python -X utf8 kit.py export --blend "output/pose01/posed.blend" --output-dir "output/exports/my_poses/P001" --id P001
+python -X utf8 kit.py catalog --plan examples/release_plan.example.json --output output/catalog/site --release-dir output/catalog/releases --records-dir output/catalog/records --zip --verify</pre>
+<p>一括書き出しの場合は、source（入力blendの絶対パス）、output（export_root/カテゴリID/素材IDの絶対パス）、idを持つ配列をjobs.jsonに保存します。blender -b --python-exit-code 1 -P scripts/blender/export_asset.py -- --jobs jobs.jsonで実行できます。任意の目視確認にはbatch review、旧形式の採否済み書き出しにはbatch releaseを使えますが、配布サイトはcatalogコマンドで作成します。</p>
+<p>書き出しキャッシュには検証用JSONを保存しますが、配布用siteと素材ZIPにはコピーしません。配布素材フォルダにはBVHとBlendだけが入り、ボーン情報と素材情報はBlend内のText（rig.json / asset.json）に保持します。</p><p>一括ZIPはコレクション別にBVH版とBlend版を作ります。全素材をまとめたZIPは生成しません。公開HTMLは両方の個別ダウンロードを表示します。ZIP内のHTMLでは、収録していない形式のリンクをCSSとhidden属性で隠し、hrefも外します。各ZIPのindex.htmlを開くと、収録した形式だけを選べます。</p><p>公開dist/search.htmlでは全素材を検索できます。検索結果はコード順に初期50件、50・100・200件を切り替えて表示します。ZIP内のsearch.htmlは、そのZIPに収録したコレクションを検索します。</p><p>公開サイトをdistへ採用してCloudflare Pagesへ、ZIPをreleasesへ採用してGitHub Releasesへ配置します。検証用JSONはmaintenance/publicationへ保持します。--download-urlsには「コレクションID-bvh」「コレクションID-blend」をキーにしたHTTPS URLのJSONを渡します。<a href="../examples/download_urls.example.json">設定例</a>のnullを公開URLへ置き換えてください。URL未設定時に架空の公開リンクは生成しません。</p>
+<p>Cloudflare Pagesへ大量の素材を置く場合はWranglerを使用します。2026-09-27確認時、Direct Uploadの上限はWranglerが20,000ファイル、画面からのドラッグ＆ドロップが1,000ファイル、各ファイル25 MiBです。<a href="https://developers.cloudflare.com/pages/get-started/direct-upload/">公式配置手順</a></p>
+<h2>トラブルシューティング</h2>
+<table><tr><th>症状</th><th>確認すること</th></tr><tr><td>接続拒否</td><td>ComfyUIの起動とcomfy_url。既存ジョブがある場合は重複起動しない。</td></tr><tr><td>モデルがない</td><td>asset_rootと実ファイルを確認。展開時の二重フォルダに注意。</td></tr><tr><td>SAM3DのGPUエラー</td><td>同ノードの隔離ワーカー環境とGPUを確認。実装の変更はノードの版に合わせる。</td></tr><tr><td>cp932 UnicodeDecodeError</td><td>第三者ノードの子プロセスログで確認例あり。ログだけで失敗と断定せず、終了コード・実ファイル・summaryを見る。制作ツールはUTF-8で実行。</td></tr><tr><td>リターゲットの骨格不一致</td><td>同じ体形プリセットでSAM3Dが出力した解析元FBXを使う。配布Blendから書き出したFBXを代用しない。</td></tr></table>
+<p>確認環境: Windows 11、RTX 4070 Ti SUPER 16GB、RAM 64GB、Python 3.12、Blender 4.3.0。これは動作確認例で、最低要件の保証ではありません。外部ソフトの利用条件は各提供元に従います。</p></body></html>
+
